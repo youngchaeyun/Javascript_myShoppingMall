@@ -15,24 +15,24 @@ let products = [
 let selectedProducts = [];
 let totalPrice = 0;
 
-let productSelect = document.getElementById('product-select')
-let selectedProducts1 = document.getElementById('selected-products')
-let totalPrice1 = document.getElementById('total-price')
-let payButton = document.getElementById('button')
+let productSelect = document.getElementById('product-select');
+let selectedProducts1 = document.getElementById('selected-products');
+let totalPrice1 = document.getElementById('total-price');
+let payButton = document.getElementById('button');
 
 products.forEach((product) => {
-    let option = document.createElement('option')
-    option.value = product.name
-    option.textContent = `${product.name} - ${product.price}`
-    option.priceInfo.price = product.price
-    productSelectl.appendChild(option)
-})
+    let option = document.createElement('option');
+    option.value = product.name;
+    option.textContent = `${product.name} - ${product.price} 원`;
+    option.dataset.price = product.price;
+    productSelect.appendChild(option);
+});
 
-productSelectl.addEventListener('change', function() {
-    let selectedOptions = [...this.selectedOptions]
+productSelect.addEventListener('change', function () {
+    let selectedOptions = [...this.selectedOptions];
     selectedProducts = selectedOptions.map(option => {
-        return new Product(option.value, parseInt(option.priceInfo.price))
-    })
-    updateSelectedProducts()
-})
+        return new Product(option.value, parseInt(option.dataset.price));
+    });
+    updateSelectedProducts();
+});
 

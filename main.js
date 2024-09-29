@@ -58,3 +58,9 @@ payButton.addEventListener('click', function (event) {
     }
 });
 
+function openPaymentWindow() {
+    let paymentWindow = window.open('', '결제창', 'width=400,height=300');
+    paymentWindow.document.write(
+
+    )
+}

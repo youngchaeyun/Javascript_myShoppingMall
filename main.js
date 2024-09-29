@@ -89,3 +89,10 @@ function openPaymentWindow() {
         </html>
     `)
 }
+
+function resetSelection() {
+    selectedProducts = [];
+    totalPrice = 0;
+    updateSelectedProducts();
+    productSelect.selectedIndex = -1;
+}

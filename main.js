@@ -5,7 +5,6 @@ function Product(name, price) {
     this.price = price;
 }
 
-
 let products = [
     new Product('대뱃살', 3000),
     new Product('목살', 5000),
@@ -20,4 +19,12 @@ let productSelect = document.getElementById('product-select')
 let selectedProducts1 = document.getElementById('selected-products')
 let totalPrice1 = document.getElementById('total-price')
 let payButton = document.getElementById('button')
+
+products.forEach((product) => {
+    let option = document.createElement('option')
+    option.value = product.name
+    option.textContent = `${product.name} - ${product.price}`
+    option.priceInfo.price = product.price
+    selectedProducts1.appendChild(option)
+})
 

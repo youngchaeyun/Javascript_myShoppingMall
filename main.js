@@ -48,3 +48,13 @@ function updateSelectedProducts() {
 
     totalPrice1.textContent = `총액: ${totalPrice} 원`;
 }
+
+payButton.addEventListener('click', function (event) {
+    event.preventDefault();
+    if (selectedProducts.length === 0) {
+        alert('결제할 상품을 선택해야 합니다.');
+    } else {
+        openPaymentWindow();
+    }
+});
+

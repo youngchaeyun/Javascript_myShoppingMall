@@ -25,6 +25,14 @@ products.forEach((product) => {
     option.value = product.name
     option.textContent = `${product.name} - ${product.price}`
     option.priceInfo.price = product.price
-    selectedProducts1.appendChild(option)
+    productSelectl.appendChild(option)
+})
+
+productSelectl.addEventListener('change', function() {
+    let selectedOptions = [...this.selectedOptions]
+    selectedProducts = selectedOptions.map(option => {
+        return new Product(option.value, parseInt(option.priceInfo.price))
+    })
+    updateSelectedProducts()
 })
 

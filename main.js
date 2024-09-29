@@ -36,3 +36,15 @@ productSelect.addEventListener('change', function () {
     updateSelectedProducts();
 });
 
+function updateSelectedProducts() {
+    selectedProducts1.innerHTML = '';
+    totalPrice = selectedProducts.reduce((sum, product) => sum + product.price, 0);
+
+    selectedProducts.forEach(product => {
+        let li = document.createElement('li');
+        li.textContent = product.name;
+        selectedProducts1.appendChild(li);
+    });
+
+    totalPrice1.textContent = `총액: ${totalPrice} 원`;
+}
